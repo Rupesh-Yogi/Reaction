@@ -16,13 +16,14 @@
 
 
 function App() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <div>
 
     <h1>My first React Website</h1>
-    {isLoggedIn && <p>Welcome!</p>}
+    {/* {isLoggedIn && <p>Welcome!</p>} */}
+    {isLoggedIn ? <p>Welcome!</p> : <p>Please Log in first.</p>}
     </div>
   )
 }

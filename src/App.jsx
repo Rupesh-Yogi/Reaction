@@ -1,35 +1,14 @@
-// function MyButton({onClick}) {
-
-//   return <button onClick = {onClick}>Click here</button>
-// }
-
-// function App() {
-
-//     function showMessage(){
-//       console.log("Button Clicked!");
-//     }
-
-//     return <MyButton onClick = {showMessage}/>
-// }
-
-// export default App;
+  import { useState } from "react";
 
 
-
-function MyButton({clccl}){
-
-  return <button onClick = {clccl}> Click Me</button>
-}
-
-function App(){
-
-  function showMessage(){
-    console.log("Something done with button.")
+  function App() {
+    const[name, setName] = useState("Rupesh");
+    return (
+  <>
+      <p>Name: {name}</p>
+      <button onClick={() => setName("Alex")}>Change Name</button>
+  </>
+    );
   }
 
-  return (
-    <MyButton  clccl = {showMessage} />
-  )
-}
-
-export default App;
+  export default App;

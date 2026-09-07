@@ -1,14 +1,22 @@
-  import { useState } from "react";
 
+import { useState } from "react";
 
-  function App() {
-    const[name, setName] = useState("Rupesh");
-    return (
+function App(){
+const[count, setCount]  = useState(0);
+
+return (
   <>
-      <p>Name: {name}</p>
-      <button onClick={() => setName("Alex")}>Change Name</button>
-  </>
-    );
-  }
+  <p>{count}</p>
 
-  export default App;
+
+{/* <button onClick={()=> setCount(count + 1)}>Increase One</button>
+<button onClick={()=> setCount(count + 3)}>Increase Three</button> */}
+
+<button onClick={()=> setCount(prevCount => prevCount + 1)}>Increase One</button>
+<button onClick={()=> setCount(prevCount => prevCount + 3)}>Increase Three</button>
+  </>
+);
+}
+
+
+export default App;

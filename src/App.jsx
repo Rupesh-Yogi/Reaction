@@ -2,18 +2,17 @@
 import { useState } from "react";
 
 function App(){
-const[count, setCount]  = useState(0);
+const[user, setUser]  = useState({
+  name: "Rupesh",
+  age : 22
+});
 
 return (
   <>
-  <p>{count}</p>
+  <p>{user.name}</p>
+  <p>{user.age}</p>
 
-
-{/* <button onClick={()=> setCount(count + 1)}>Increase One</button>
-<button onClick={()=> setCount(count + 3)}>Increase Three</button> */}
-
-<button onClick={()=> setCount(prevCount => prevCount + 1)}>Increase One</button>
-<button onClick={()=> setCount(prevCount => prevCount + 3)}>Increase Three</button>
+<button onClick={()=> setUser({...user, age:44})}>Change Age</button>
   </>
 );
 }

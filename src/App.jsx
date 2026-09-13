@@ -3,8 +3,14 @@ import { useState } from "react";
 
 function App(){
 
-  const[fruits, setFruits] = useState(["Apple", "Banana"]);
+  const[fruits, setFruits] = useState(["Apple", "Mango", "Banana"]);
 
+  function removeBanana(){
+    setFruits((prevFruits)=> 
+     prevFruits.filter((fruit) => 
+      fruit !== "Banana"
+    ))
+  }
 
   return(
     <>
@@ -14,13 +20,9 @@ function App(){
     ))}
  
 
-    <button onClick={()=> setFruits((prevFruits)=> [...prevFruits, "Mango"])}>Add Mango</button>
+    <button onClick={removeMango}> Remove Banana </button>
     </>
   )
 }
 
 export default App;
-
-
-
-

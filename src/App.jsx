@@ -2,20 +2,25 @@
 import { useState } from "react";
 
 function App(){
-const[user, setUser]  = useState({
-  name: "Rupesh",
-  age : 22
-});
 
-return (
-  <>
-  <p>{user.name}</p>
-  <p>{user.age}</p>
+  const[fruits, setFruits] = useState(["Apple", "Banana"]);
 
-<button onClick={()=> setUser({...user, age:44})}>Change Age</button>
-  </>
-);
+
+  return(
+    <>
+
+    {fruits.map((fruit) => (
+      <p key={fruit}>{fruit}</p>
+    ))}
+ 
+
+    <button onClick={()=> setFruits((prevFruits)=> [...prevFruits, "Mango"])}>Add Mango</button>
+    </>
+  )
 }
 
-
 export default App;
+
+
+
+

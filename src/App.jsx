@@ -20,7 +20,7 @@ function App(){
     ))}
  
 
-    <button onClick={removeMango}> Remove Banana </button>
+    <button onClick={removeBanana}> Remove Banana </button>
     </>
   )
 }

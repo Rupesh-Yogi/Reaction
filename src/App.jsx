@@ -3,26 +3,19 @@ import { useState } from "react";
 
 function App(){
 
-  const[fruits, setFruits] = useState(["Apple", "Mango", "Banana"]);
+  const[isVisible, setIsVisible] = useState(true);
 
-  function removeBanana(){
-    setFruits((prevFruits)=> 
-     prevFruits.filter((fruit) => 
-      fruit !== "Banana"
-    ))
+  function toggleHello(){
+    setIsVisible((prevVisible)=> !prevVisible)
   }
 
   return(
     <>
-
-    {fruits.map((fruit) => (
-      <p key={fruit}>{fruit}</p>
-    ))}
- 
-
-    <button onClick={removeBanana}> Remove Banana </button>
+      <p>{isVisible ? "Hello" : ""}</p>
+      <button onClick={toggleHello}>Toggle</button>
     </>
   )
+
 }
 
 export default App;

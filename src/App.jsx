@@ -1,21 +1,29 @@
-
 import { useState } from "react";
 
 function App(){
 
-  const[isVisible, setIsVisible] = useState(true);
+  const[name, setName] = useState("Rupesh");
+  const[age, setAge] = useState(22);
 
-  function toggleHello(){
-    setIsVisible((prevVisible)=> !prevVisible)
+
+  function changName(){
+    setName("Alex")
   }
+
+function increaseAge(){
+  setAge((prevAge)=> prevAge + 1)
+}
 
   return(
     <>
-      <p>{isVisible ? "Hello" : ""}</p>
-      <button onClick={toggleHello}>Toggle</button>
+
+    <p>{name}</p>
+    <p>{age}</p>
+
+    <button onClick={changName}>Change Name</button>
+    <button onClick={increaseAge}>Increase Age</button>
     </>
   )
-
 }
 
 export default App;

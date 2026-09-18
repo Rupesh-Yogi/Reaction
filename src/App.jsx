@@ -2,26 +2,32 @@ import { useState } from "react";
 
 function App(){
 
-  const[name, setName] = useState("Rupesh");
-  const[age, setAge] = useState(22);
+  const[student1, setStudent1] = useState({
+    name: "Rupesh",
+    age: 22,
+    course: "computer"
+  });
+
+  const[student2, setStudent2] = useState(["Alex", 25, "Mathematics"]);
 
 
-  function changName(){
-    setName("Alex")
+  function changeStudent1Age(){
+    setStudent1((prevStudent1) => ({...prevStudent1, age : 99}));
   }
 
-function increaseAge(){
-  setAge((prevAge)=> prevAge + 1)
+
+function changeStudent2Course(){
+  setStudent2(student2.map((data) => data == "Mathematics" ? "Economics" : data))
 }
 
   return(
     <>
 
-    <p>{name}</p>
-    <p>{age}</p>
+    <p>{student1.age}</p>
+    <p>{student2}</p>
 
-    <button onClick={changName}>Change Name</button>
-    <button onClick={increaseAge}>Increase Age</button>
+    <button onClick={changeStudent1Age}>Change Age</button>
+    <button onClick={changeStudent2Course}>Change Course</button>
     </>
   )
 }

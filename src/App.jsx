@@ -1,33 +1,29 @@
-import { useState } from "react";
+import { useState } from "react"
+
 
 function App(){
 
-  const[student1, setStudent1] = useState({
-    name: "Rupesh",
-    age: 22,
-    course: "computer"
-  });
+  const[count, setCount] = useState(0);
+  const[name, setName] = useState("Rupesh");
 
-  const[student2, setStudent2] = useState(["Alex", 25, "Mathematics"]);
-
-
-  function changeStudent1Age(){
-    setStudent1((prevStudent1) => ({...prevStudent1, age : 99}));
+  function increaseCount(){ 
+    setCount((prevCount) => prevCount + 1);
+    console.log(count);
   }
 
-
-function changeStudent2Course(){
-  setStudent2(student2.map((data) => data == "Mathematics" ? "Economics" : data))
-}
+  function changeName(){
+    setName("Alex");
+  }
 
   return(
     <>
-
-    <p>{student1.age}</p>
-    <p>{student2}</p>
-
-    <button onClick={changeStudent1Age}>Change Age</button>
-    <button onClick={changeStudent2Course}>Change Course</button>
+    <p>{count}</p>
+    <p>This paragraph literally doesn't depend on the count. Not at all. This is just to understand the concept 
+      of renders.
+    </p>
+    <p>{name}</p>
+    <button onClick={increaseCount}> Increase</button>
+    <button onClick={changeName}>Change Name</button>
     </>
   )
 }

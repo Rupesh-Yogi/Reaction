@@ -1,31 +1,25 @@
-import { useState } from "react"
+import { useState } from "react";
 
+function Student() {
+  console.log("Student rendered.");
 
-function App(){
+  return <p>I am a student.</p>;
+}
 
-  const[count, setCount] = useState(0);
-  const[name, setName] = useState("Rupesh");
+function App() {
+  console.log("App rendered");
 
-  function increaseCount(){ 
-    setCount((prevCount) => prevCount + 1);
-    console.log(count);
-  }
+  const [count, setCount] = useState(0);
 
-  function changeName(){
-    setName("Alex");
-  }
-
-  return(
+  return (
     <>
-    <p>{count}</p>
-    <p>This paragraph literally doesn't depend on the count. Not at all. This is just to understand the concept 
-      of renders.
-    </p>
-    <p>{name}</p>
-    <button onClick={increaseCount}> Increase</button>
-    <button onClick={changeName}>Change Name</button>
+      <p>{count}</p>
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        Increase
+      </button>
+      <Student />
     </>
-  )
+  );
 }
 
 export default App;

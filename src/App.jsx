@@ -1,25 +1,23 @@
-import { useState } from "react";
 
-function Student() {
-  console.log("Student rendered.");
 
-  return <p>I am a student.</p>;
-}
 
-function App() {
-  console.log("App rendered");
+import { useEffect, useState } from "react";
 
-  const [count, setCount] = useState(0);
+function App(){
 
-  return (
-    <>
-      <p>{count}</p>
-      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
-        Increase
-      </button>
-      <Student />
-    </>
-  );
+const[count, setCount] = useState(0);
+
+useEffect( () =>  {
+  document.title = `Count: ${count}`;
+}, [count])
+
+return(
+  <>
+  <p>{count}</p>
+  <button onClick={()=> setCount((prevCount) => prevCount + 1)}>Increase</button>
+  </>
+)
+
 }
 
 export default App;

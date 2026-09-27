@@ -5,16 +5,19 @@ import { useEffect, useState } from "react";
 
 function App(){
 
-const[count, setCount] = useState(0);
+const[users, setUsers] = useState([]);
 
 useEffect( () =>  {
-  document.title = `Count: ${count}`;
-}, [count])
+  fetch('https://jsonplaceholder.typicode.com/users')
+    .then((res)=> res.json())
+    .then((data) => setUsers(data));
+    }, [])
 
 return(
   <>
-  <p>{count}</p>
-  <button onClick={()=> setCount((prevCount) => prevCount + 1)}>Increase</button>
+   {users.map((user)=> (
+    <p key={user.id}>{user.name}</p>
+  ))}
   </>
 )
 

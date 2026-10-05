@@ -11,8 +11,14 @@ function App(){
 
 
   useEffect(()=> {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then((res) => res.json())
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://httpstat.us/404')
+      .then((res) => {
+        if(!res.ok){
+          throw new Error(`HTTP Error ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setUsers(data);
         setLoading(false);
